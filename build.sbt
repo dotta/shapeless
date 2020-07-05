@@ -13,7 +13,7 @@ import sbtcrossproject.CrossProject
 val scala211 = "2.11.12"
 inThisBuild(Seq(
   organization := "com.chuusai",
-  scalaVersion := "2.13.0",
+  scalaVersion := "2.13.2", // compilation succeeds if using 2.13.1
   crossScalaVersions := Seq("2.10.7", scala211, "2.12.8", "2.13.0")
 ))
 
@@ -51,6 +51,7 @@ val scalacOptions212 = Seq(
 )
 
 lazy val commonSettings = Seq(
+  resolvers += Resolver.mavenLocal,
   incOptions := incOptions.value.withLogRecompileOnMacro(false),
 
   scalacOptions := scalacOptionsAll,
